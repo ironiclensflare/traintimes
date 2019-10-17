@@ -3,6 +3,7 @@ module github.com/ironiclensflare/traintimes
 go 1.13
 
 require (
+	github.com/DATA-DOG/godog v0.7.13
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/nathany/looper v0.3.3 // indirect
