@@ -8,3 +8,9 @@ install: go install github.com/DATA-DOG/godog/cmd/godog
 script:
 - go test
 - godog
+- sonar-scanner
+addons:
+  sonarcloud:
+    organization: "ironiclensflare"
+    token:
+      secure: "Q6WZMrLCOnmty4FrDMrI+LPXAxcX63NFOuzBMztRKw/IXiu+pu5LYzxX/OGKXZL3wRp5BH/3tlCct1qR4UdU3ZPdPwrmYj9zY+6AXEqWhM+aqk9/DDBcwPpdQl7PcUugtsTQRT0dF/J29l/EcRxMag6YRUhy5tXNpisJLHL3vky+zWxhgRivj/axf6wLyEJMB6ZK7Kqqbov/VZ8cbfu6FBSPjocZMeq+a57txWOgvgFC1Od4DBfalMTg+d/62W/LJgEH1wVCVWy7eOpzTBhmlm5x32YGci3N55SYXd+8SqO9vIa5U08vy8NebTQiWCrjQrnP2hpmMlL2cheEd6siDSqg+T3knsXIhHcFjLdT8+WJkGJFTJivBmO/6I9Geg37wH48+PYmbhvD8dBgFDAqfOM05EShswdDAwEf1XAK9FwuMW2RP40JFvgXL0ijUuf5rU3tsY30l8s27QA9mIajw5/+jyI+x5kGtpQHieSpCwN5ZePTwq00cXd7WVG4d7LTwXWG0nNEAek70dQV5f0Ckw5kb+7w+fumorGL64OluaoWMqRQneadFql5TiI0MIdXXL62WYgQt4OwRcwJ9culGCcKQxLp64XlAztCnt14quFF0+JAMx+6m02pq5r/mYbg49vL4G7iq1DORd+e4UyEp5RMJdDkFX7rRIGpuPM01bI="
