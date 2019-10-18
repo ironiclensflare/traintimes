@@ -1,7 +1,7 @@
 language: go
 
 env:
- GO111MODULE: on
+ GO111MODULE: "on"
 
 script:
  - go test
