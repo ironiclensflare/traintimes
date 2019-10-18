@@ -1,5 +1,8 @@
 language: go
 
+env:
+ GO111MODULE: "on"
+
 install: go install github.com/DATA-DOG/godog/cmd/godog
 
 script:
