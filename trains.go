@@ -13,6 +13,6 @@ func main() {
 func getTrains() {
 	var service services.TrainService
 	service = services.NewRealTrainService()
-	json := service.GetTrainsDepartingFrom("NOT")
+	json, _ := service.GetTrainsDepartingFrom("NOT")
 	log.Println(json)
 }

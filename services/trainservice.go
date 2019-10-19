@@ -1,6 +1,7 @@
 package services
 
 import (
+	"errors"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -10,28 +11,20 @@ import (
 const URL = "https://api.rtt.io/api/v1/json/search/"
 
 type TrainService interface {
-	GetTrainsDepartingFrom(station string) (json string)
+	GetTrainsDepartingFrom(station string) (json string, err error)
 }
 
 type RealTrainService struct {
-}
-
-type FakeTrainService struct {
-}
-
-func (service *FakeTrainService) GetTrainsDepartingFrom(station string) (json string) {
-	return `{}`
 }
 
 func NewRealTrainService() *RealTrainService {
 	return &RealTrainService{}
 }
 
-func NewFakeTrainService() *FakeTrainService {
-	return &FakeTrainService{}
-}
-
-func (service *RealTrainService) GetTrainsDepartingFrom(station string) (json string) {
+func (service *RealTrainService) GetTrainsDepartingFrom(station string) (json string, err error) {
+	if len(station) != 3 {
+		return "", errors.New("Invalid station name")
+	}
 	req, err := http.NewRequest("GET", URL+station, nil)
 	req.SetBasicAuth(os.Getenv("RTTUSER"), os.Getenv("RTTPASS"))
 
@@ -43,5 +36,5 @@ func (service *RealTrainService) GetTrainsDepartingFrom(station string) (json st
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
-	return string(body)
+	return string(body), nil
 }
