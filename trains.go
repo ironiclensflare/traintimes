@@ -1,8 +1,11 @@
 package main
 
 import (
-	"log"
+	"encoding/json"
+	"fmt"
+	"os"
 
+	"github.com/ironiclensflare/traintimes/models"
 	"github.com/ironiclensflare/traintimes/services"
 )
 
@@ -11,8 +14,11 @@ func main() {
 }
 
 func getTrains() {
+	args := os.Args[1:]
 	var service services.TrainService
 	service = services.NewRealTrainService()
-	json, _ := service.GetTrainsDepartingFrom("NOT")
-	log.Println(json)
+	trainsJSON, _ := service.GetTrainsDepartingFrom(args[0])
+	var trains models.DepartureBoard
+	json.Unmarshal([]byte(trainsJSON), &trains)
+	fmt.Println(trains.Location.Name)
 }
