@@ -41,7 +41,7 @@ type LocationDetail struct {
 	Platform                string
 	PlatformConfirmed       bool
 	PlatformChanged         bool
-	DisplayAs               bool
+	DisplayAs               string
 }
 
 // Pair represents an origin or destination station
