@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 
+	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 
 	"github.com/ironiclensflare/traintimes/models"
@@ -30,7 +31,8 @@ func buildTable(trains models.DepartureBoard) {
 	for _, s := range trains.Services {
 		var platform string
 		if s.LocationDetail.IsCancelled() {
-			platform = "CANCELLED"
+			red := color.New(color.BgRed).SprintFunc()
+			platform = red("CANCELLED")
 		} else {
 			platform = s.LocationDetail.Platform
 		}
