@@ -26,9 +26,15 @@ func getTrains() {
 
 func buildTable(trains models.DepartureBoard) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Time", "ID", "Destination", "TOC", "Platform"})
+	table.SetHeader([]string{"Time", "Head", "Destination", "TOC", "Platform"})
 	for _, s := range trains.Services {
-		table.Append([]string{s.LocationDetail.RealtimeDeparture, s.TrainIdentity, s.LocationDetail.Destination[0].Description, s.ATOCName, s.LocationDetail.Platform})
+		var platform string
+		if s.LocationDetail.IsCancelled() {
+			platform = "CANCELLED"
+		} else {
+			platform = s.LocationDetail.Platform
+		}
+		table.Append([]string{s.LocationDetail.RealtimeDeparture, s.TrainIdentity, s.LocationDetail.Destination[0].Description, s.ATOCName, platform})
 	}
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
 	table.Render()

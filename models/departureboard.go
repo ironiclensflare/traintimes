@@ -42,6 +42,13 @@ type LocationDetail struct {
 	PlatformConfirmed       bool
 	PlatformChanged         bool
 	DisplayAs               string
+	CancelReasonCode        string
+	CancelReasonShortText   string
+	CancelReasonLongText    string
+}
+
+func (ld LocationDetail) IsCancelled() bool {
+	return ld.CancelReasonCode != ""
 }
 
 // Pair represents an origin or destination station

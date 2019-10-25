@@ -13,8 +13,12 @@ github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORN
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
+github.com/mattn/go-runewidth v0.0.5 h1:jrGtp51JOKTWgvLFzfG6OtZOJcK2sEnzc/U+zw7TtbA=
+github.com/mattn/go-runewidth v0.0.5/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
 github.com/nathany/looper v0.3.3 h1:WRMKUgJt4jeU44DrMkeuyM/ueBrt/PfXuxx3lAGp7h8=
 github.com/nathany/looper v0.3.3/go.mod h1:lAOncmeiijTmAX17hI41yptNBp880ShD1nObDNEaUm0=
+github.com/olekukonko/tablewriter v0.0.1 h1:b3iUnf1v+ppJiOfNX4yxxqfWKMQPZR5yoh8urCTFX88=
+github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
 github.com/remogatto/application v0.0.0-20131220152721-e155f2e6fd5f h1:Es+Rx8kwOmodFvtCG8I4UYw7QfsAQDp4O8Doxl8HXMI=
 github.com/remogatto/application v0.0.0-20131220152721-e155f2e6fd5f/go.mod h1:MfYIlhF89jJroWf05Nz/mk2TIL8Vc2x9TMDP1nJLOjo=
 github.com/remogatto/prettytest v0.0.0-20161014102941-8b5d7bfe964e h1:uQy6ob81XHCWTGzVTbVHnMDjc4jRKaIXuaNSsX5thCU=
