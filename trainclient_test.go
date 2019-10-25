@@ -1,21 +1,39 @@
 package main
 
-import "github.com/DATA-DOG/godog"
+import (
+	"fmt"
+	"os"
+
+	"github.com/DATA-DOG/godog"
+	"github.com/ironiclensflare/traintimes/models"
+)
+
+var client *TrainClient
+var stationToQuery string
+var response models.DepartureBoard
 
 func iHaveATrainClientWithRealAPICredentials() error {
-	return godog.ErrPending
+	username := os.Getenv("RTTUSER")
+	password := os.Getenv("RTTPASS")
+	client = GetTrainClient(username, password)
+	return nil
 }
 
 func iHaveEnteredAValidStation() error {
-	return godog.ErrPending
+	stationToQuery = "VIC"
+	return nil
 }
 
 func iGetTheDepartureBoard() error {
-	return godog.ErrPending
+	response = client.GetDepartureBoard(stationToQuery)
+	return nil
 }
 
 func iShouldReceiveAResponse() error {
-	return godog.ErrPending
+	if response.Location.Name == "" {
+		return fmt.Errorf("Didn't receive any services")
+	}
+	return nil
 }
 
 func FeatureContext(s *godog.Suite) {
