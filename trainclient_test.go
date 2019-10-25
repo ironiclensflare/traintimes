@@ -15,7 +15,7 @@ var response models.DepartureBoard
 func iHaveATrainClientWithRealAPICredentials() error {
 	username := os.Getenv("RTTUSER")
 	password := os.Getenv("RTTPASS")
-	client = GetTrainClient(username, password)
+	client = GetTrainClientWithCredentials(username, password)
 	return nil
 }
 

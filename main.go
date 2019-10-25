@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 
@@ -9,7 +8,6 @@ import (
 	"github.com/olekukonko/tablewriter"
 
 	"github.com/ironiclensflare/traintimes/models"
-	"github.com/ironiclensflare/traintimes/services"
 )
 
 func main() {
@@ -18,11 +16,8 @@ func main() {
 
 func getTrains() {
 	args := os.Args[1:]
-	var service services.TrainService
-	service = services.NewRealTrainService()
-	trainsJSON, _ := service.GetTrainsDepartingFrom(args[0])
-	var trains models.DepartureBoard
-	json.Unmarshal([]byte(trainsJSON), &trains)
+	client := GetTrainClient()
+	trains := client.GetDepartureBoard(args[0])
 	buildTable(trains)
 }
 

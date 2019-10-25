@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"os"
 
 	"github.com/ironiclensflare/traintimes/models"
 	"github.com/ironiclensflare/traintimes/services"
@@ -23,8 +24,14 @@ func (tc TrainClient) GetDepartureBoard(station string) models.DepartureBoard {
 	return trains
 }
 
-// GetTrainClient returns a new instance of TrainClient
-func GetTrainClient(username string, password string) *TrainClient {
+// GetTrainClient returns a new instance of TrainClient with credentials from the environment variables
+func GetTrainClient() *TrainClient {
+	client := TrainClient{username: os.Getenv("RTTUSER"), password: os.Getenv("RTTPASS")}
+	return &client
+}
+
+// GetTrainClientWithCredentials returns a new instance of TrainClient with the given credentials
+func GetTrainClientWithCredentials(username string, password string) *TrainClient {
 	client := TrainClient{username: username, password: password}
 	return &client
 }
