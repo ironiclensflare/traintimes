@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"github.com/fatih/color"
@@ -27,6 +28,7 @@ func getTrains() {
 
 func buildTable(trains models.DepartureBoard) {
 	table := tablewriter.NewWriter(os.Stdout)
+	table.SetCaption(true, fmt.Sprintf("Trains at %s", trains.Location.Name))
 	table.SetHeader([]string{"Time", "Head", "Destination", "TOC", "Platform"})
 	for _, s := range trains.Services {
 		var platform string
